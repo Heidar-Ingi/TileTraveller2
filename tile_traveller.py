@@ -62,7 +62,7 @@ def find_directions(col, row):
     return valid_directions
 
 
-def play_one_move(col, row, valid_directions, coins_count):
+def play_one_move(col, row, valid_directions, coins_count, moves_count):
     ''' Plays one move of the game
         Return if victory has been obtained and updated col,row '''
     
@@ -72,6 +72,7 @@ def play_one_move(col, row, valid_directions, coins_count):
     #direction = direction.lower()
     direction = random.choice(options_list)
     print("Direction: ",direction)
+    moves_count += 1
         
     if not direction in valid_directions:
         print("Not a valid direction!")
@@ -79,7 +80,7 @@ def play_one_move(col, row, valid_directions, coins_count):
         col, row = move(direction, col, row)
         coins_count = pull_coin_lever(col, row, coins_count)
         victory = is_victory(col, row)
-    return victory, col, row, coins_count
+    return victory, col, row, coins_count, moves_count
 
 def pull_coin_lever(col, row, coins_count):
     ''' Checks if there is a coin on user location and give lever...'''
@@ -122,15 +123,16 @@ def play():
     row = 1
     col = 1
     coins_count = 0
+    moves_count = 0
         
     while not victory:
         valid_directions = find_directions(col, row)
         print_directions(valid_directions)
 
-        victory, col, row, coins_count = play_one_move(col, row, valid_directions, coins_count)
+        victory, col, row, coins_count, moves_count = play_one_move(col, row, valid_directions, coins_count, moves_count)
 
         
-    print(f"Victory! Total coins {coins_count}.")
+    print(f"Victory! Total coins {coins_count}. Moves {moves_count}.")
     play_again = input("Play again (y/n): ")
     return play_again
 
