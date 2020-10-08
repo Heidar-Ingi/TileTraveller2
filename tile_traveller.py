@@ -66,12 +66,12 @@ def play_one_move(col, row, valid_directions, coins_count, moves_count):
     ''' Plays one move of the game
         Return if victory has been obtained and updated col,row '''
     
-    options_list = ["n","s","e","w"]
+    options_list = ["n","e","s","w"]
     victory = False
     #direction = input("Direction: ")
     #direction = direction.lower()
     direction = random.choice(options_list)
-    print("Direction: ",direction)
+    print("Direction:",direction)
     moves_count += 1
         
     if not direction in valid_directions:
@@ -88,28 +88,28 @@ def pull_coin_lever(col, row, coins_count):
 
     if (col == 1 and row == 2): #and (first_coin == 1): # (1,2)
         pull_lever = random.choice([YES,NO])
-        print("Pull a lever (y/n): ",pull_lever)
+        print("Pull a lever (y/n):",pull_lever)
         if pull_lever == "y":
             coins_count += 1
             print(f"You received 1 coin, your total is now {coins_count}.")
             
     elif col == 2 and row == 2: # (2,2)
         pull_lever = random.choice([YES,NO])
-        print("Pull a lever (y/n): ",pull_lever)
+        print("Pull a lever (y/n):",pull_lever)
         if pull_lever == "y":
             coins_count += 1
             print(f"You received 1 coin, your total is now {coins_count}.")
 
     elif col == 2 and row == 3: # (2,3)
         pull_lever = random.choice([YES,NO])
-        print("Pull a lever (y/n): ",pull_lever)
+        print("Pull a lever (y/n):",pull_lever)
         if pull_lever == "y":
             coins_count += 1
             print(f"You received 1 coin, your total is now {coins_count}.")
 
     elif col == 3 and row == 2: # (3,2)
         pull_lever = random.choice([YES,NO])
-        print("Pull a lever (y/n): ",pull_lever)
+        print("Pull a lever (y/n):",pull_lever)
         if pull_lever == "y":
             coins_count += 1
             print(f"You received 1 coin, your total is now {coins_count}.")
